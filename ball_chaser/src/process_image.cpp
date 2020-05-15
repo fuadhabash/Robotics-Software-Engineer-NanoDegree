@@ -38,7 +38,6 @@ void process_image_callback(const sensor_msgs::Image img)
     int step = img.step;
     float x = 0.0;
     float z = 0.0;
-    float offset = 0;
     int count = 0;
 
     bool first_x = false;
@@ -92,15 +91,6 @@ void process_image_callback(const sensor_msgs::Image img)
         moving_state = false;
     }
 
-    // if (count == 0) {
-    //     x = 0.0;
-    //     z = 0.0;
-    // }
-    // else {
-    //     x = 0.1;
-    //     // z = 0.5 * (step / 2.0 - idx_center_ball);
-    //     z = -4.0 * offset / count / (step /2.0);
-    // }
 
     // Send request to service
     drive_robot(x, z);
